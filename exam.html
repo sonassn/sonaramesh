@@ -1,0 +1,90 @@
+<html>
+<body>
+    Mobile number:<input type="text" id="mo" maxlength="10"><br><br>
+    <input type="button" id="ll"  value="generate otp" onclick="myFunction()"><br><br>
+	 OTP:<input type="text" id="ot" disabled><br><br>
+	 <button  id="mm" onclick="papper()">verify</button><br><br>
+	
+<script>
+count=0
+t=0
+v=0
+function myFunction() 
+{ 
+  rand=Math.floor((Math.random()*10000)+1)
+  var phone=document.getElementById("mo").value;  
+  if(isNaN(phone)==false&phone.length==10)
+  { 
+    o=phone.substring(0,2)
+    y=phone.substring(8,10)
+    alert("An OTP will be sent to the number"+o+"********"+y);
+	alert("Your OTP is"+rand)
+	document.getElementById("ot").disabled=false;
+	document.getElementById("mm").disabled=false;
+	v=v+1
+  }
+  else                                                     
+  {  
+     alert("Enter a invalid mobile number!!");
+  }
+}
+function papper()
+{ 
+  var we=document.getElementById("ot").value;
+  if( we==rand)
+  {
+    alert("verfication successful");
+   }
+  else
+  {
+    alert("Wrong otp");
+	count=count+1
+  } 
+if (count==3)
+{    
+    alert("Generate one more time");
+	document.getElementById("ot").disabled=true;
+	document.getElementById("mm").disabled=true;
+	document.getElementById("ot").value=""
+	t=t+1
+}
+if (count==6)
+{
+	document.getElementById("ot").disabled=true;
+	document.getElementById("mm").disabled=true;
+	document.getElementById("ot").value=""
+	t=t+1
+}
+if(v==2 & t==2)
+{  
+	alert("locked");
+	document.getElementById("ot").disabled=true;
+	document.getElementById("mm").disabled=true;
+	document.getElementById("ll").disabled=true;
+}
+}
+</script>
+</body>
+</html>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+	
